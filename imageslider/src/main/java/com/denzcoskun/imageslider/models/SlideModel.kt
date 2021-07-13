@@ -1,5 +1,6 @@
 package com.denzcoskun.imageslider.models
 
+import android.net.Uri
 import com.denzcoskun.imageslider.constants.ScaleTypes
 
 /**
@@ -11,6 +12,7 @@ class SlideModel {
 
     var imageUrl: String? = null
     var imagePath: Int? = 0
+    var imageUri: Uri? = null
     var title: String? = null
     var scaleType: ScaleTypes? = null
 
@@ -28,6 +30,10 @@ class SlideModel {
 
     constructor(imageUrl: String?, scaleType: ScaleTypes?) {
         this.imageUrl = imageUrl
+        this.scaleType = scaleType
+    }
+    constructor(imageUri: Uri?, scaleType: ScaleTypes?) {
+        this.imageUri = imageUri
         this.scaleType = scaleType
     }
 

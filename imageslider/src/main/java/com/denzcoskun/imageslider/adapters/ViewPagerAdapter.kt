@@ -65,10 +65,14 @@ class ViewPagerAdapter(context: Context?,
         }
 
         // Image from url or local path check.
-        val loader = if (imageList!![position].imageUrl == null){
-            Picasso.get().load(imageList!![position].imagePath!!)
-        }else{
+        val loader = if (imageList!![position].imageUrl != null){
             Picasso.get().load(imageList!![position].imageUrl!!)
+        }
+        else if(imageList!![position].imageUri!=null){
+            Picasso.get().load(imageList!![position].imageUri!!)
+        }
+        else{
+            Picasso.get().load(imageList!![position].imagePath!!)
         }
 
         // set Picasso options.
