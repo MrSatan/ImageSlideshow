@@ -1,6 +1,8 @@
 package com.denzcoskun.imageslider
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.os.Build
 import android.os.Handler
 import android.util.AttributeSet
 import android.view.Gravity
@@ -116,6 +118,12 @@ class ImageSlider @JvmOverloads constructor(
                 stopSliding()
                 startSliding()
             }
+        }
+    }
+
+    fun changeSelectedDotColor(color:Int){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            dots!![0]!!.imageTintList = ColorStateList.valueOf(color)
         }
     }
 
